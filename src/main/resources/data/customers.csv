@@ -1,0 +1,51 @@
+customer_id,first_name,last_name,email,phone,city,state,country,created_at,status
+1,,Doe,john.doe@email.com,+1-555-1001,New York,NY,USA,2023-01-10,ACTIVE
+2,Ana,Silva,ana.silva@email.com,+55-11-90001,Sao Paulo,SP,BRA,2023-01-11,ACTIVE
+3,Carlos,Pereira,carlos.p@email.com,+55-21-90002,Rio de Janeiro,RJ,BRA,2023-01-12,INACTIVE
+4,Maria,Santos,maria.s@email.com,+351-21-90003,Lisbon,LI,PRT,2023-01-13,ACTIVE
+5,Lucas,Oliveira,lucas.o@email.com,+55-31-90004,Belo Horizonte,MG,BRA,2023-01-14,PENDING
+6,Emily,Clark,emily.clark@email.com,+1-555-1005,Chicago,IL,USA,2023-01-15,ACTIVE
+7,Michael,Brown,michael.b@email.com,+1-555-1006,Dallas,TX,USA,2023-01-16,ACTIVE
+8,Sofia,Rossi,sofia.rossi@email.com,+39-06-90007,Rome,RM,ITA,2023-01-17,INACTIVE
+9,Liam,Wilson,liam.w@email.com,+44-20-90008,London,LDN,UK,2023-01-18,ACTIVE
+10,Isabella,Martinez,isabella.m@email.com,+34-91-90009,Madrid,MD,ESP,2023-01-19,ACTIVE
+11,Daniel,Anderson,daniel.a@email.com,+1-555-1010,Seattle,WA,USA,2023-01-20,PENDING
+12,Paula,Costa,paula.c@email.com,+55-19-90011,Campinas,SP,BRA,2023-01-21,ACTIVE
+13,Bruno,Almeida,bruno.a@email.com,+55-27-90012,Victoria,ES,BRA,2023-01-22,INACTIVE
+14,Renata,Lima,renata.l@email.com,+55-85-90013,Fortaleza,CE,BRA,2023-01-23,ACTIVE
+15,Victor,Nunes,victor.n@email.com,+55-41-90014,Curitiba,PR,BRA,2023-01-24,ACTIVE
+16,Emma,Johnson,emma.j@email.com,+1-555-1015,Boston,MA,USA,2023-01-25,PENDING
+17,Oliver,Taylor,oliver.t@email.com,+44-16-90016,Manchester,MCR,UK,2023-01-26,ACTIVE
+18,Helena,Muller,helena.m@email.com,+49-30-90017,Berlin,BE,DEU,2023-01-27,ACTIVE
+19,Noah,White,noah.w@email.com,+1-555-1018,Denver,CO,USA,2023-01-28,INACTIVE
+20,Laura,Fernandez,laura.f@email.com,+34-93-90019,Barcelona,CT,ESP,2023-01-29,ACTIVE
+21,Gabriel,Rocha,gabriel.r@email.com,+55-48-90020,Florianopolis,SC,BRA,2023-01-30,ACTIVE
+22,Marina,Teixeira,marina.t@email.com,+55-62-90021,Goiania,GO,BRA,2023-01-31,PENDING
+23,Pedro,Barbosa,pedro.b@email.com,+55-71-90022,Salvador,BA,BRA,2023-02-01,ACTIVE
+24,Natalia,Ribeiro,natalia.r@email.com,+55-61-90023,Brasilia,DF,BRA,2023-02-02,INACTIVE
+25,Rafael,Gomes,rafael.g@email.com,+55-81-90024,Recife,PE,BRA,2023-02-03,ACTIVE
+26,Ethan,Moore,ethan.m@email.com,+1-555-1025,San Diego,CA,USA,2023-02-04,ACTIVE
+27,Chloe,Martin,chloe.m@email.com,+33-01-90026,Paris,IDF,FRA,2023-02-05,ACTIVE
+28,Diego,Suarez,diego.s@email.com,+54-11-90027,Buenos Aires,BA,ARG,2023-02-06,PENDING
+29,Matheus,Araujo,matheus.a@email.com,+55-92-90028,Manaus,AM,BRA,2023-02-07,ACTIVE
+30,Beatriz,Ferreira,beatriz.f@email.com,+55-98-90029,Sao Luis,MA,BRA,2023-02-08,INACTIVE
+31,Henry,Walker,henry.w@email.com,+1-555-1030,Portland,OR,USA,2023-02-09,ACTIVE
+32,Alice,King,alice.k@email.com,+44-13-90031,Brighton,ESX,UK,2023-02-10,ACTIVE
+33,Felipe,Mendes,felipe.m@email.com,+55-47-90032,Blumenau,SC,BRA,2023-02-11,PENDING
+34,Juliana,Carvalho,juliana.c@email.com,+55-83-90033,Joao Pessoa,PB,BRA,2023-02-12,ACTIVE
+35,Samuel,Harris,samuel.h@email.com,+1-555-1035,Atlanta,GA,USA,2023-02-13,ACTIVE
+36,Leonardo,Pinto,leonardo.p@email.com,+55-91-90036,Belem,PA,BRA,2023-02-14,INACTIVE
+37,Patricia,Lopez,patricia.l@email.com,+52-55-90037,Mexico City,MX,MEX,2023-02-15,ACTIVE
+38,Igor,Petrov,igor.p@email.com,+7-495-90038,Moscow,MS,RUS,2023-02-16,PENDING
+39,Vanessa,Moreira,vanessa.m@email.com,+55-34-90039,Uberlandia,MG,BRA,2023-02-17,ACTIVE
+40,Thomas,Young,thomas.y@email.com,+1-555-1040,Phoenix,AZ,USA,2023-02-18,ACTIVE
+41,Camila,Pacheco,camila.p@email.com,+55-65-90041,Cuiaba,MT,BRA,2023-02-19,INACTIVE
+42,Arthur,Freitas,arthur.f@email.com,+55-22-90042,Campos,RJ,BRA,2023-02-20,ACTIVE
+43,Nicole,Evans,nicole.e@email.com,+1-555-1043,San Jose,CA,USA,2023-02-21,PENDING
+44,Andre,Coelho,andre.c@email.com,+55-35-90044,Pocos de Caldas,MG,BRA,2023-02-22,ACTIVE
+45,Hugo,Castro,hugo.c@email.com,+55-95-90045,Boa Vista,RR,BRA,2023-02-23,ACTIVE
+46,Sarah,Mitchell,sarah.m@email.com,+1-555-1046,Miami,FL,USA,2023-02-24,ACTIVE
+47,Ricardo,Torres,ricardo.t@email.com,+56-2-90047,Santiago,RM,CHL,2023-02-25,INACTIVE
+48,Luana,Farias,luana.f@email.com,+55-69-90048,Porto Velho,RO,BRA,2023-02-26,PENDING
+49,Kevin,Scott,kevin.s@email.com,+1-555-1049,Las Vegas,NV,USA,2023-02-27,ACTIVE
+50,Daniela,Moreno,daniela.m@email.com,+57-1-90050,Bogota,DC,COL,2023-02-28,ACTIVE
