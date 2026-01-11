@@ -1,39 +1,50 @@
 package dev.prj.sbatch1.infra.batch.processor;
 
 import dev.prj.sbatch1.domain.model.Customer;
+import dev.prj.sbatch1.domain.model.InvalidCustomer;
+import dev.prj.sbatch1.domain.model.ValidCustomer;
 import dev.prj.sbatch1.infra.batch.dto.CustomerCsvDTO;
-import jakarta.validation.ConstraintViolationException;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.ValidatorFactory;
 import org.springframework.batch.infrastructure.item.ItemProcessor;
-import org.springframework.batch.infrastructure.item.validator.ValidatingItemProcessor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
-@Log4j2
+import java.util.Set;
+
 @Component
 @SuppressWarnings("all")
-@RequiredArgsConstructor
 public class CustomerValidationProcessor implements ItemProcessor<CustomerCsvDTO, Customer> {
 
-  private final ValidatingItemProcessor<CustomerCsvDTO> validator;
+  private final jakarta.validation.Validator validator;
 
-  @Override
-  public Customer process(CustomerCsvDTO dto) throws Exception {
-
-    try {
-      validator.process(dto);
-    } catch (ConstraintViolationException e) {
-      log.warn("Skipping invalid record: {}", dto, e);
-      return null;
-    }
-
-    log.debug("Mapping DTO to entity: {}", dto);
-
-    Customer entity = new Customer();
-    BeanUtils.copyProperties(dto, entity);
-
-    return entity;
+  public CustomerValidationProcessor() {
+    ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+    this.validator = factory.getValidator();
   }
 
+  @Override
+  public Customer process(CustomerCsvDTO dto) {
+
+    Set<ConstraintViolation<CustomerCsvDTO>> violations = validator.validate(dto);
+
+    if (!violations.isEmpty()) {
+      String error =
+        violations.stream()
+          .map(v -> v.getPropertyPath() + " " + v.getMessage())
+          .reduce((a, b) -> a + ", " + b)
+          .orElse("Validation error");
+
+      InvalidCustomer invalidCustomer = new InvalidCustomer();
+      BeanUtils.copyProperties(dto, invalidCustomer);
+      invalidCustomer.setInconsistency(error);
+
+      return invalidCustomer;
+    }
+
+    ValidCustomer customer = new ValidCustomer();
+    BeanUtils.copyProperties(dto, customer);
+    return customer;
+  }
 }

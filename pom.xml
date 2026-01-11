@@ -12,7 +12,7 @@
 
   <groupId>dev.prj</groupId>
   <artifactId>sbatch1</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <name>fprocessor</name>
   <description>Spring batch file processing</description>
 

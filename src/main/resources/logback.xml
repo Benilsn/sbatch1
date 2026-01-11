@@ -38,11 +38,11 @@
     <appender-ref ref="FILE"/>
   </root>
 
-  <logger name="dev.prj.sbatch1" level="${LOGGING_LEVEL_ROOT:DEBUG}" />
-<!--  <logger name="org.springframework" level="${LOGGING_LEVEL_SPRING:WARN}" />-->
-<!--  <logger name="org.hibernate" level="${LOGGING_LEVEL_HIBERNATE:WARN}" />-->
-<!--  <logger name="org.springframework.batch" level="${LOGGING_LEVEL_BATCH:INFO}" />-->
-<!--  <logger name="org.hibernate.SQL" level="${LOGGING_LEVEL_HIBERNATE_SQL:INFO}" />-->
-<!--  <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="${LOG_HIBERNATE_BINDER_LEVEL:INFO}" />-->
+  <logger name="dev.prj.sbatch1" level="DEBUG"/>
+  <logger name="org.springframework" level="ERROR"/>
+  <logger name="org.hibernate.orm.core" level="INFO"/>
+  <!--  <logger name="org.hibernate" level="${LOGGING_LEVEL_HIBERNATE:WARN}" />-->
+  <!--  <logger name="org.springframework.batch" level="${LOGGING_LEVEL_BATCH:INFO}" />-->
+  <!--  <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="${LOG_HIBERNATE_BINDER_LEVEL:INFO}" />-->
 
 </configuration>

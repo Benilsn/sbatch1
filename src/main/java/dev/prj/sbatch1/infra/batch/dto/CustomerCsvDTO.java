@@ -25,8 +25,8 @@ public class CustomerCsvDTO {
   private String email;
 
   @Pattern(
-    regexp = "\\+?[0-9]{10,15}",
-    message = "Phone must be 10 to 15 digits, optionally starting with +"
+    regexp = "^\\+\\d{1,3}-\\d{2,3}-\\d{4,6}$",
+    message = "Phone must follow +<country>-<area>-<number>"
   )
   private String phone;
 

@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class Sbatch1Properties {
 
    private String filePath;
+   private String inconsistentDataFilePath;
    private boolean scheduled;
 
 }

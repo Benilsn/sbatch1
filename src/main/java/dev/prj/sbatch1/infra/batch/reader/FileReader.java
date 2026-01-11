@@ -7,11 +7,14 @@ import org.springframework.batch.infrastructure.item.file.mapping.BeanWrapperFie
 import org.springframework.batch.infrastructure.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.infrastructure.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.stereotype.Component;
 
 @Log4j2
+@Component
 public class FileReader {
 
-  public static FlatFileItemReader<CustomerCsvDTO> read(String filePath) {
+  public FlatFileItemReader<CustomerCsvDTO> read(String filePath) {
+    log.debug("Reading file: {}", filePath);
 
     DefaultLineMapper<CustomerCsvDTO> lineMapper = new DefaultLineMapper<>();
 
@@ -30,8 +33,7 @@ public class FileReader {
       "status"
     );
 
-    BeanWrapperFieldSetMapper<CustomerCsvDTO> mapper =
-      new BeanWrapperFieldSetMapper<>();
+    BeanWrapperFieldSetMapper<CustomerCsvDTO> mapper = new BeanWrapperFieldSetMapper<>();
     mapper.setTargetType(CustomerCsvDTO.class);
 
     lineMapper.setLineTokenizer(tokenizer);
