@@ -1,2 +1,0 @@
-customer_id,first_name,last_name,email,phone,city,state,country,created_at,status
-1,,Doe,john.doe@email.com,+1-555-1001,New York,NY,USA,2023-01-10,ACTIVE

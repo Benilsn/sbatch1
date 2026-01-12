@@ -1,3 +1,32 @@
 package dev.prj.sbatch1.domain.model;
 
-public sealed abstract class Customer permits ValidCustomer, InvalidCustomer { }
+import lombok.*;
+import java.time.LocalDate;
+
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public final class Costumer {
+
+  private Long customerId;
+  private String firstName;
+  private String lastName;
+  private String email;
+  private String phone;
+  private String city;
+  private String state;
+  private String country;
+  private LocalDate createdAt;
+  private CustomerStatus status;
+  private boolean valid;
+  private String inconsistency;
+
+  public enum CustomerStatus {
+    ACTIVE,
+    INACTIVE,
+    PENDING
+  }
+
+}
