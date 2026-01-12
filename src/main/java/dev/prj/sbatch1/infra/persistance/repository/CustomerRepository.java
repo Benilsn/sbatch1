@@ -1,7 +1,7 @@
 package dev.prj.sbatch1.infra.persistance.repository;
 
-import dev.prj.sbatch1.domain.model.ValidCustomer;
+import dev.prj.sbatch1.domain.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CustomerRepository extends JpaRepository<ValidCustomer, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }

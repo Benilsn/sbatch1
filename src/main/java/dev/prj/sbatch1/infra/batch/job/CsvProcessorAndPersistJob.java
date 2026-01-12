@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class CsvProcessorAndPersistJob {
 
   @Bean
-  public Job execute(JobRepository jobRepository, Step processAndValidateStep) {
+  public Job fileProcessorJob(JobRepository jobRepository, Step processAndValidateStep) {
     return new JobBuilder("fileProcessorJob", jobRepository)
       .start(processAndValidateStep)
       .build();

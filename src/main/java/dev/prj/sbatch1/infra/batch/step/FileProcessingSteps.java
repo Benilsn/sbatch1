@@ -10,7 +10,7 @@ import org.springframework.batch.core.listener.JobExecutionListener;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.Step;
 import org.springframework.batch.core.step.builder.StepBuilder;
-import org.springframework.batch.infrastructure.item.ItemWriter;
+import org.springframework.batch.infrastructure.item.file.FlatFileItemWriter;
 import org.springframework.batch.infrastructure.item.support.ClassifierCompositeItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -28,15 +28,23 @@ public class FileProcessingSteps {
                                      PlatformTransactionManager transactionManager,
                                      FileReader fileReader,
                                      CustomerValidationProcessor customerValidationProcessor,
-                                     ClassifierCompositeItemWriter<Customer> writer) {
-    return new StepBuilder("processAndValidateStep", jobRepository)
-      .<CustomerCsvDTO, Customer>chunk(10)
-      .transactionManager(transactionManager)
-      .listener(jobExecutionListener)
-      .reader(fileReader.read(batchProperties.getFilePath()))
-      .processor(customerValidationProcessor)
-      .writer(writer)
-      .build();
+                                     ClassifierCompositeItemWriter<Customer> writer,
+                                     FlatFileItemWriter<Customer> invalidCustomerWriter
+  ) {
+    return
+      new StepBuilder("processAndValidateStep", jobRepository)
+        .<CustomerCsvDTO, Customer>chunk(batchProperties.getChunkSize())
+        .transactionManager(transactionManager)
+        .listener(jobExecutionListener)
+        .reader(fileReader.read(batchProperties.getFilePath()))
+        .processor(customerValidationProcessor)
+        .writer(writer)
+        .stream(invalidCustomerWriter)
+        .faultTolerant()
+        .retryLimit(3)
+        .retry(Exception.class)
+        .skipLimit(5)
+        .build();
   }
 
 }

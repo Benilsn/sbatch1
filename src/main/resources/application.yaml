@@ -24,9 +24,9 @@ spring:
     jdbc:
       initialize-schema: always
     job:
-      enabled: true
+      enabled: false
 
 sbatch1:
-  scheduled: false
+  chunkSize: 10
   file-path: src/main/resources/data/customers1.csv
-  inconsistent-data-file-path: src/main/resources/data
+  inconsistent-data-file-path: src/main/resources/data/inconsistentData.csv

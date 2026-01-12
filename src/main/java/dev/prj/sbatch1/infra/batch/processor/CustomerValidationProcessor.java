@@ -1,18 +1,18 @@
 package dev.prj.sbatch1.infra.batch.processor;
 
 import dev.prj.sbatch1.domain.model.Customer;
-import dev.prj.sbatch1.domain.model.InvalidCustomer;
-import dev.prj.sbatch1.domain.model.ValidCustomer;
 import dev.prj.sbatch1.infra.batch.dto.CustomerCsvDTO;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.ValidatorFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.infrastructure.item.ItemProcessor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
+@Slf4j
 @Component
 @SuppressWarnings("all")
 public class CustomerValidationProcessor implements ItemProcessor<CustomerCsvDTO, Customer> {
@@ -26,8 +26,11 @@ public class CustomerValidationProcessor implements ItemProcessor<CustomerCsvDTO
 
   @Override
   public Customer process(CustomerCsvDTO dto) {
+    log.debug("Validating data, id: {},", dto.getCustomerId());
 
     Set<ConstraintViolation<CustomerCsvDTO>> violations = validator.validate(dto);
+    Customer customer = new Customer();
+    BeanUtils.copyProperties(dto, customer);
 
     if (!violations.isEmpty()) {
       String error =
@@ -36,15 +39,11 @@ public class CustomerValidationProcessor implements ItemProcessor<CustomerCsvDTO
           .reduce((a, b) -> a + ", " + b)
           .orElse("Validation error");
 
-      InvalidCustomer invalidCustomer = new InvalidCustomer();
-      BeanUtils.copyProperties(dto, invalidCustomer);
-      invalidCustomer.setInconsistency(error);
-
-      return invalidCustomer;
+      customer.setInconsistency(error);
+    } else {
+      customer.setValid(true);
     }
 
-    ValidCustomer customer = new ValidCustomer();
-    BeanUtils.copyProperties(dto, customer);
     return customer;
   }
 }

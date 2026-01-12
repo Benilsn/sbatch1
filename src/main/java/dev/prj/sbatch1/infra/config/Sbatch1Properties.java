@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("sbatch1")
 public class Sbatch1Properties {
 
+   private int chunkSize;
    private String filePath;
    private String inconsistentDataFilePath;
    private boolean scheduled;
